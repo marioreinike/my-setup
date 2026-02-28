@@ -6,6 +6,10 @@ return {
     transparency = false,
   },
 
+  nvdash = {
+    load_on_startup = true,
+  },
+
   ui = {
     cmp = {
       icons_left = false,
