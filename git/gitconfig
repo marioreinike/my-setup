@@ -1,0 +1,37 @@
+[alias]
+	pl = pull
+	ps = push
+	cm = commit -m
+	s = status
+	ch = checkout
+	cf = commit --fixup
+	ca = commit --amend
+	l = log --oneline
+	cane = commit --amend --no-edit
+	lg = log --graph --oneline --decorate --all
+[user]
+	name = Mario Reinike
+	email = marioreinike@gmail.com
+[core]
+	editor = nano
+	pager = delta
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[advice]
+	addIgnoredFile = false
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	features = default
+
+[delta "default"]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+
+[delta "lazygit"]
+	line-numbers = true
+	side-by-side = false
+	navigate = false
