@@ -72,8 +72,8 @@ zed/              → Zed editor settings and keymap (~/.config/zed/)
 ## Claude Code Skills and Commands
 
 **Project skills** (in `.claude/commands/`, for this repo only):
-- `/sync-to-repo` — Read live configs from the computer and update this repo
-- `/sync-from-repo` — Restore configs from this repo to the computer
+- `/push` — Read live configs from the computer and update this repo
+- `/pull` — Pull from origin, then restore configs from this repo to the computer
 
 **User-level skills** (backed up in `claude-local/commands/`, synced to `~/.claude/commands/`):
 - Currently none. When Mario asks to create global skills, save them to both `~/.claude/commands/` and `claude-local/commands/`.

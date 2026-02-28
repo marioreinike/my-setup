@@ -1,6 +1,8 @@
-Restore configurations from this repo to the computer. Ask for confirmation before overwriting each file.
+Restore configurations from this repo to the computer.
 
-For each mapping in CLAUDE.md's File-to-System Mapping table:
+First, run `git pull origin main` to get the latest changes from the remote.
+
+Then, ask for confirmation before overwriting each file. For each mapping in CLAUDE.md's File-to-System Mapping table:
 1. Read the repo file
 2. Read the live file on the computer (if it exists)
 3. Show the diff
