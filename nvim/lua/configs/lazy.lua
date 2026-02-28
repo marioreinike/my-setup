@@ -1,14 +1,13 @@
 return {
   defaults = { lazy = true },
-
   install = { colorscheme = { "nvchad" } },
 
   ui = {
     icons = {
-      ft = "",
+      ft = "",
       lazy = "󰂠 ",
-      loaded = "",
-      not_loaded = "",
+      loaded = "",
+      not_loaded = "",
     },
   },
 
@@ -28,7 +27,8 @@ return {
         "matchit",
         "tar",
         "tarPlugin",
-        "rstcheck",
+        "rrhelper",
+        "spellfile_plugin",
         "vimball",
         "vimballPlugin",
         "zip",

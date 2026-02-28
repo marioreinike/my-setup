@@ -1,9 +1,10 @@
-return {
-  base46 = {
-    theme = "onedark",
-  },
+---@type ChadrcConfig
+local M = {}
 
-  nvdash = {
-    load_on_startup = true,
-  },
+M.base46 = {
+  theme = "onedark",
 }
+
+M.nvdash = { load_on_startup = true }
+
+return M
