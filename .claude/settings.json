@@ -3,16 +3,11 @@
     "allow": [
       "Edit",
       "Write",
-      "Bash(git add *)",
-      "Bash(git commit *)",
-      "Bash(git status *)",
-      "Bash(git log *)",
-      "Bash(git diff *)",
-      "Bash(mkdir *)",
       "Bash(cp *)",
+      "Bash(mkdir *)",
+      "Bash(sed *)",
       "Bash(cat *)",
-      "Bash(ls *)",
-      "Bash(sed *)"
+      "Bash(ls *)"
     ]
   }
 }
