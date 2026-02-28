@@ -22,6 +22,7 @@ atuin/            → Atuin shell history config (~/.config/atuin/config.toml)
 gh/               → GitHub CLI config (~/.config/gh/config.yml)
 zed/              → Zed editor settings and keymap (~/.config/zed/)
 1password/        → 1Password SSH agent config (~/.config/1Password/ssh/agent.toml)
+nvim/             → Neovim config with NvChad (~/.config/nvim/lua/ and .stylua.toml)
 ```
 
 ## File-to-System Mapping
@@ -37,6 +38,8 @@ zed/              → Zed editor settings and keymap (~/.config/zed/)
 | `zed/settings.json` | `~/.config/zed/settings.json` |
 | `zed/keymap.json` | `~/.config/zed/keymap.json` |
 | `1password/ssh-agent.toml` | `~/.config/1Password/ssh/agent.toml` |
+| `nvim/lua/*` | `~/.config/nvim/lua/*` |
+| `nvim/.stylua.toml` | `~/.config/nvim/.stylua.toml` |
 | `claude-local/settings.json` | `~/.claude/settings.json` |
 | `claude-local/plugins/config.json` | `~/.claude/plugins/config.json` |
 | `claude-local/plugins/installed_plugins.json` | `~/.claude/plugins/installed_plugins.json` |
