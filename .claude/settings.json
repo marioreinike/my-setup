@@ -7,7 +7,13 @@
       "Bash(mkdir *)",
       "Bash(sed *)",
       "Bash(cat *)",
-      "Bash(ls *)"
+      "Bash(ls *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git mv *)"
     ]
   }
 }
