@@ -14,13 +14,14 @@ This repo is Mario's personal dotfiles/setup repository. It stores all computer 
 ## Repo Structure
 
 ```
-git/          → Git config (~/.gitconfig) and global gitignore (~/.config/git/ignore)
-zsh/          → Zsh shell config (~/.zshrc) and Powerlevel10k theme (~/.p10k.zsh)
-atuin/        → Atuin shell history config (~/.config/atuin/config.toml)
-gh/           → GitHub CLI config (~/.config/gh/config.yml)
-zed/          → Zed editor settings and keymap (~/.config/zed/)
-1password/    → 1Password SSH agent config (~/.config/1Password/ssh/agent.toml)
-claude/       → Claude Code global settings (copy of ~/.claude/settings.json)
+.claude/          → Project-level: sync skills and repo permissions (NOT backed up configs)
+claude-local/     → Mirror of ~/.claude/ (backup for restoring on a new computer)
+git/              → Git config (~/.gitconfig) and global gitignore (~/.config/git/ignore)
+zsh/              → Zsh shell config (~/.zshrc) and Powerlevel10k theme (~/.p10k.zsh)
+atuin/            → Atuin shell history config (~/.config/atuin/config.toml)
+gh/               → GitHub CLI config (~/.config/gh/config.yml)
+zed/              → Zed editor settings and keymap (~/.config/zed/)
+1password/        → 1Password SSH agent config (~/.config/1Password/ssh/agent.toml)
 ```
 
 ## File-to-System Mapping
@@ -36,7 +37,11 @@ claude/       → Claude Code global settings (copy of ~/.claude/settings.json)
 | `zed/settings.json` | `~/.config/zed/settings.json` |
 | `zed/keymap.json` | `~/.config/zed/keymap.json` |
 | `1password/ssh-agent.toml` | `~/.config/1Password/ssh/agent.toml` |
-| `claude/settings.json` | `~/.claude/settings.json` |
+| `claude-local/settings.json` | `~/.claude/settings.json` |
+| `claude-local/plugins/config.json` | `~/.claude/plugins/config.json` |
+| `claude-local/plugins/installed_plugins.json` | `~/.claude/plugins/installed_plugins.json` |
+| `claude-local/plugins/known_marketplaces.json` | `~/.claude/plugins/known_marketplaces.json` |
+| `claude-local/commands/*` | `~/.claude/commands/*` |
 
 ## Commit Conventions
 
@@ -66,7 +71,12 @@ claude/       → Claude Code global settings (copy of ~/.claude/settings.json)
 
 ## Claude Code Skills and Commands
 
-Claude skills/commands are stored at `~/.claude/commands/` (user-level) or in project `.claude/commands/` directories. Currently no custom skills exist. When Mario asks to create skills, save them both to `~/.claude/commands/` and to a `claude/commands/` directory in this repo.
+**Project skills** (in `.claude/commands/`, for this repo only):
+- `/sync-to-repo` — Read live configs from the computer and update this repo
+- `/sync-from-repo` — Restore configs from this repo to the computer
+
+**User-level skills** (backed up in `claude-local/commands/`, synced to `~/.claude/commands/`):
+- Currently none. When Mario asks to create global skills, save them to both `~/.claude/commands/` and `claude-local/commands/`.
 
 ## Adding New Configurations
 
