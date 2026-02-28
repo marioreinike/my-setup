@@ -16,6 +16,10 @@ Only after the user confirms, apply all changes:
 - If claude-local/commands/ has files, copy them → ~/.claude/commands/
 - Create parent directories if they don't exist
 
+Ignore these known differences when comparing:
+- zsh/zshrc: lines containing CLAUDE_API_TOKEN or NPM_TASKFORCESH_TOKEN (redacted in repo, live values on computer). Never overwrite these lines — the live values must be preserved.
+- claude-local/plugins/known_marketplaces.json: `lastUpdated` timestamp differences are cosmetic, ignore them.
+
 IMPORTANT:
-- For zsh/zshrc: warn that CLAUDE_API_TOKEN and NPM_TASKFORCESH_TOKEN are redacted and must be set manually after restore
 - Never overwrite ~/.claude/.credentials.json
+- When copying zsh/zshrc to the computer, preserve the live values of redacted env vars (do not replace them with the redacted placeholders)

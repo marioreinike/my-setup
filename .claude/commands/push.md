@@ -13,4 +13,7 @@ For claude-local/ (mirrors ~/.claude/):
 4. Copy ~/.claude/plugins/known_marketplaces.json → claude-local/plugins/known_marketplaces.json
 5. If ~/.claude/commands/ exists, copy all files → claude-local/commands/
 
+Ignore these known differences when comparing:
+- claude-local/plugins/known_marketplaces.json: `lastUpdated` timestamp differences are cosmetic, do not update the repo copy for timestamp-only changes.
+
 After updating, show a summary of what changed and ask if I should commit the changes.
