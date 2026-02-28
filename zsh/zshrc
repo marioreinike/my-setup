@@ -168,3 +168,5 @@ export CLAUDE_API_TOKEN=# REDACTED - set this manually
 
 # Quick navigate to git worktree by branch name
 cdwt() { cd "$(git worktree list | grep "$1" | awk '{print $1}')" }
+
+alias cls="cd ~/REPOS/my-setup && claude"
