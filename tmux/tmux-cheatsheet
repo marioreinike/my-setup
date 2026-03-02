@@ -44,6 +44,7 @@ prefix + ]             Paste buffer
 q                      Exit copy mode
 
 ── Other ──
+prefix + g             Lazygit popup (current dir)
 prefix + T             Terminal popup (current dir)
 prefix + i             Info popup (dir + git summary)
 prefix + /             Search keybindings (this menu)
