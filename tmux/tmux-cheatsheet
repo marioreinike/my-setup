@@ -34,6 +34,8 @@ prefix + q             Show pane numbers
 prefix + {             Move pane left
 prefix + }             Move pane right
 prefix + Space         Cycle pane layouts
+prefix + E             Equalize pane sizes
+prefix + X             Pane manager (kill/jump processes)
 
 ── Copy / Scroll ──
 Trackpad               Scroll directly
@@ -44,6 +46,7 @@ prefix + ]             Paste buffer
 q                      Exit copy mode
 
 ── Other ──
+prefix + a             Agent dashboard (Claude Code monitor)
 prefix + g             Lazygit popup (current dir)
 prefix + T             Terminal popup (current dir)
 prefix + i             Info popup (dir + git summary)
