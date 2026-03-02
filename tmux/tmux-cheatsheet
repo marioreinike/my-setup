@@ -44,6 +44,8 @@ prefix + ]             Paste buffer
 q                      Exit copy mode
 
 ── Other ──
+prefix + T             Terminal popup (current dir)
+prefix + i             Info popup (dir + git summary)
 prefix + /             Search keybindings (this menu)
 prefix + r             Reload config
 prefix + :             tmux command line
