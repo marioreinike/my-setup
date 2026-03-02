@@ -1,0 +1,51 @@
+prefix = Ctrl+a  or  Ctrl+Space
+
+── Sessions ──
+prefix + :new          New session
+prefix + s             List sessions
+prefix + $             Rename session
+prefix + d             Detach
+prefix + (             Previous session
+prefix + )             Next session
+prefix + L             Last active session
+
+── Windows (tabs) ──
+prefix + c             New window (same path)
+prefix + ,             Rename window
+prefix + w             List windows
+prefix + n             Next window
+prefix + p             Previous window
+prefix + l             Last active window
+prefix + 1-9           Go to window by number
+prefix + .             Move window to another index
+prefix + &             Close window
+
+── Panes (splits) ──
+prefix + \             Split horizontal
+prefix + -             Split vertical
+prefix + h/j/k/l      Resize pane (vim keys, repeatable)
+prefix + m             Maximize/restore pane
+prefix + z             Zoom/unzoom pane (fullscreen)
+prefix + !             Break pane into its own window
+prefix + o             Cycle to next pane
+prefix + ;             Last active pane
+prefix + x             Close pane
+prefix + q             Show pane numbers
+prefix + {             Move pane left
+prefix + }             Move pane right
+prefix + Space         Cycle pane layouts
+
+── Copy / Scroll ──
+Trackpad               Scroll directly
+prefix + [             Enter copy/scroll mode
+Ctrl+s                 Search forward (in copy mode)
+Ctrl+r                 Search backward (in copy mode)
+prefix + ]             Paste buffer
+q                      Exit copy mode
+
+── Other ──
+prefix + /             Search keybindings (this menu)
+prefix + r             Reload config
+prefix + :             tmux command line
+prefix + ?             Full keybinding list (raw)
+prefix + t             Show clock

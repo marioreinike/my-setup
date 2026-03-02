@@ -23,6 +23,7 @@ gh/               → GitHub CLI config (~/.config/gh/config.yml)
 zed/              → Zed editor settings and keymap (~/.config/zed/)
 1password/        → 1Password SSH agent config (~/.config/1Password/ssh/agent.toml)
 nvim/             → Neovim config with NvChad (~/.config/nvim/lua/ and .stylua.toml)
+tmux/             → Tmux terminal multiplexer config (~/.config/tmux/)
 ```
 
 ## File-to-System Mapping
@@ -40,6 +41,8 @@ nvim/             → Neovim config with NvChad (~/.config/nvim/lua/ and .stylua
 | `1password/ssh-agent.toml` | `~/.config/1Password/ssh/agent.toml` |
 | `nvim/lua/*` | `~/.config/nvim/lua/*` |
 | `nvim/.stylua.toml` | `~/.config/nvim/.stylua.toml` |
+| `tmux/tmux.conf` | `~/.config/tmux/tmux.conf` |
+| `tmux/tmux-cheatsheet` | `~/.config/tmux/tmux-cheatsheet` |
 | `claude-local/settings.json` | `~/.claude/settings.json` |
 | `claude-local/plugins/config.json` | `~/.claude/plugins/config.json` |
 | `claude-local/plugins/installed_plugins.json` | `~/.claude/plugins/installed_plugins.json` |
