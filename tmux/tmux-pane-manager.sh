@@ -25,34 +25,66 @@ get_agent_state() {
 }
 
 list_panes() {
-  # Detect TTYs running claude (shows as version number in pane_current_command)
   local claude_ttys
   claude_ttys=$(ps -eo tty=,comm= 2>/dev/null | awk '$2 == "claude" {print $1}')
 
-  tmux list-panes -a -F '#{pane_id}|#{session_name}:#{window_name}.#{pane_index}|#{pane_current_command}|#{pane_current_path}|#{pane_tty}' 2>/dev/null \
-    | while IFS='|' read -r pid loc cmd path tty; do
-        short="${path/#$HOME/\~}"
-        tty_short="${tty#/dev/}"
-        is_claude=0
-        echo "$claude_ttys" | grep -qx "$tty_short" && is_claude=1
+  # Buffer pane data for lookahead (tree formatting)
+  local raw=()
+  while IFS= read -r line; do
+    raw+=("$line")
+  done < <(tmux list-panes -a -F '#{pane_id}|#{session_name}|#{window_name}|#{pane_index}|#{pane_current_command}|#{pane_current_path}|#{pane_tty}' 2>/dev/null)
 
-        if [ "$is_claude" -eq 1 ]; then
-          local state
-          state=$(get_agent_state "$tty_short")
-          local label color
-          case "$state" in
-            thinking) label="● thinking"; color="\033[32m" ;;
-            waiting)  label="◆ waiting";  color="\033[33m" ;;
-            idle)     label="○ idle";     color="\033[38;5;208m" ;;
-            *)        label="claude";     color="\033[2m" ;;
-          esac
-          printf '%s|  %b%-28s  %-16s  %s\033[0m\n' "$pid" "$color" "$loc" "($label)" "$short"
-        elif echo "$cmd" | grep -qE '^(zsh|bash|fish|sh)$'; then
-          printf '%s|  \033[2m%-28s  %-16s  %s\033[0m\n' "$pid" "$loc" "$cmd" "$short"
-        else
-          printf '%s|  \033[1m%-28s  %-16s  %s\033[0m\n' "$pid" "$loc" "$cmd" "$short"
-        fi
-      done
+  local prev_group="" total=${#raw[@]}
+
+  for i in "${!raw[@]}"; do
+    IFS='|' read -r pid sess win idx cmd path tty <<< "${raw[$i]}"
+    local group="$sess:$win"
+    local short="${path/#$HOME/\~}"
+    local tty_short="${tty#/dev/}"
+
+    # Lookahead: is next pane in same window?
+    local next_same=0
+    if [ $((i + 1)) -lt "$total" ]; then
+      local nsess nwin
+      IFS='|' read -r _ nsess nwin _ _ _ _ <<< "${raw[$((i+1))]}"
+      [ "$nsess:$nwin" = "$group" ] && next_same=1
+    fi
+
+    # Build location label with tree structure
+    # └/├ are 3 bytes but 1 column; printf pads by bytes, so add 2 to compensate
+    local loc loc_pad=28
+    if [ "$group" != "$prev_group" ]; then
+      loc="$group.$idx"
+    elif [ "$next_same" -eq 0 ]; then
+      loc="  └ .$idx"
+      loc_pad=30
+    else
+      loc="  ├ .$idx"
+      loc_pad=30
+    fi
+
+    # Detect claude agent
+    local is_claude=0
+    echo "$claude_ttys" | grep -qx "$tty_short" && is_claude=1
+
+    if [ "$is_claude" -eq 1 ]; then
+      local state label color
+      state=$(get_agent_state "$tty_short")
+      case "$state" in
+        thinking) label="● thinking"; color="\033[32m" ;;
+        waiting)  label="◆ waiting";  color="\033[33m" ;;
+        idle)     label="○ idle";     color="\033[38;5;208m" ;;
+        *)        label="claude";     color="\033[2m" ;;
+      esac
+      printf '%s|  %b%-*s  %-16s  %s\033[0m\n' "$pid" "$color" "$loc_pad" "$loc" "($label)" "$short"
+    elif echo "$cmd" | grep -qE '^(zsh|bash|fish|sh)$'; then
+      printf '%s|  \033[2m%-*s  %-16s  %s\033[0m\n' "$pid" "$loc_pad" "$loc" "$cmd" "$short"
+    else
+      printf '%s|  \033[1m%-*s  %-16s  %s\033[0m\n' "$pid" "$loc_pad" "$loc" "$cmd" "$short"
+    fi
+
+    prev_group="$group"
+  done
 }
 
 # Called by fzf reload
