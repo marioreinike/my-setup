@@ -88,6 +88,20 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 **User-level skills** (backed up in `claude-local/commands/`, synced to `~/.claude/commands/`):
 - Currently none. When Mario asks to create global skills, save them to both `~/.claude/commands/` and `claude-local/commands/`.
 
+## MCP Servers (Global)
+
+Global MCP servers are configured in `~/.claude.json` via `claude mcp add -s user`. This file is NOT tracked in the repo (too large/ephemeral). To recreate on a new computer:
+
+```bash
+# ClickUp (project management)
+claude mcp add -s user --transport http clickup https://mcp.clickup.com/mcp
+
+# Playwright (headless browser: scraping, screenshots, PDFs, automation)
+claude mcp add -s user --transport stdio playwright -- npx -y @playwright/mcp@latest --headless --caps "pdf,vision"
+```
+
+Tool permissions for these servers are tracked in `claude-local/settings.json`.
+
 ## Adding New Configurations
 
 When a new tool config needs tracking:
