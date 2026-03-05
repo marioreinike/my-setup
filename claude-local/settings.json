@@ -113,6 +113,16 @@
             "timeout": 5000
           }
         ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.local/bin/claude-format-hook",
+            "timeout": 10000
+          }
+        ]
       }
     ],
     "Stop": [
