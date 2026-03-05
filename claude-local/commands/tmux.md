@@ -98,6 +98,63 @@ For each pane show: location, what's running, path, and status.
 
 If any server panes have errors in their output, proactively flag them.
 
+## Step 8: Create panes, windows, and sessions
+
+Open new panes and run commands in them. Always use `-c <path>` to set the working directory.
+
+### Split current window (new pane)
+```bash
+# Horizontal split (side by side)
+tmux split-window -h -t <target> -c <path>
+
+# Vertical split (top/bottom)
+tmux split-window -v -t <target> -c <path>
+
+# Split and immediately run a command
+tmux split-window -h -t <target> -c <path> "<command>"
+```
+
+### New window in an existing session
+```bash
+# New window
+tmux new-window -t <session> -c <path>
+
+# New window with a name and a command
+tmux new-window -t <session> -n <window-name> -c <path> "<command>"
+```
+
+### New session
+```bash
+# New detached session
+tmux new-session -d -s <session-name> -c <path>
+
+# New session with a command running
+tmux new-session -d -s <session-name> -c <path> "<command>"
+```
+
+### Common patterns
+```bash
+# Open a pane next to the current server and run tests
+tmux split-window -h -t main:1.1 -c /Users/mario/REPOS/backend "pnpm test"
+
+# Create a dedicated window for logs
+tmux new-window -t main -n logs -c /Users/mario/REPOS/backend "tail -f logs/app.log"
+
+# Open a new pane in the same directory as an existing pane
+# First get the path: tmux display-message -t <target> -p '#{pane_current_path}'
+tmux split-window -v -t <target> -c "$(tmux display-message -t <target> -p '#{pane_current_path}')"
+```
+
+### After creating a pane
+- The new pane becomes the active pane in that window
+- If a command was passed, it runs immediately; when it exits, the pane closes
+- For persistent panes (shell + command), create without a command, then use `send-keys`:
+  ```bash
+  tmux split-window -h -t <target> -c <path>
+  tmux send-keys -t <target-of-new-pane> "<command>" Enter
+  ```
+- To find the new pane's target, re-run Step 1 after creating it
+
 ## Debugging patterns
 
 | User says | What to do |
@@ -108,6 +165,9 @@ If any server panes have errors in their output, proactively flag them.
 | "what's running" | List all panes with classification |
 | "read pane X" | Capture output from the specified pane |
 | "run X in the server pane" | Find the right pane → send keys |
+| "open a pane for X" | Determine best session/window → split or new window → run command |
+| "run tests in a new pane" | Split next to the relevant server pane → run test command |
+| "set up the dev environment" | Create session/windows/panes as needed → start servers |
 
 ## Now: auto-inspect
 
