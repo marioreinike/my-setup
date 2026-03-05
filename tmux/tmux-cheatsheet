@@ -26,14 +26,17 @@ prefix + -             Split vertical
 prefix + h/j/k/l      Resize pane (vim keys, repeatable)
 prefix + m             Maximize/restore pane
 prefix + z             Zoom/unzoom pane (fullscreen)
-prefix + !             Break pane into its own window
+prefix + !             Break pane into new window
+prefix + :join-pane -t :N   Move pane to window N
 prefix + o             Cycle to next pane
 prefix + ;             Last active pane
 prefix + x             Close pane
 prefix + q             Show pane numbers
 prefix + {             Move pane left
 prefix + }             Move pane right
-prefix + Space         Cycle pane layouts
+prefix + Space         Cycle pane layouts (flip h↔v)
+prefix + M-1           Layout: even-horizontal
+prefix + M-2           Layout: even-vertical
 prefix + E             Equalize pane sizes
 prefix + X             Pane manager (kill/jump processes)
 
