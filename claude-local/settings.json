@@ -26,6 +26,13 @@
       "Bash(gh run view *)",
       "Bash(gh run list *)",
       "Bash(cat *)",
+      "Bash(tmux list-panes *)",
+      "Bash(tmux list-windows *)",
+      "Bash(tmux list-sessions *)",
+      "Bash(tmux display-message *)",
+      "Bash(tmux capture-pane *)",
+      "Bash(tmux show-options *)",
+      "Bash(ps *)",
       "Bash(gh api *)",
       "WebFetch(domain:docs.bullmq.io)",
       "mcp__clickup__clickup_search",
@@ -72,7 +79,6 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "skipDangerousModePermissionPrompt": true,
   "hooks": {
     "Notification": [
       {
@@ -149,5 +155,7 @@
         ]
       }
     ]
-  }
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "high"
 }
