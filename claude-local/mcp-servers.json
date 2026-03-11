@@ -1,0 +1,38 @@
+{
+  "clickup": {
+    "type": "http",
+    "url": "https://mcp.clickup.com/mcp"
+  },
+  "playwright": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "-y",
+      "@playwright/mcp@latest",
+      "--headless",
+      "--caps",
+      "pdf,vision"
+    ],
+    "env": {}
+  },
+  "datadog-mcp": {
+    "type": "http",
+    "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp",
+    "headers": {
+      "DD_API_KEY": "# REDACTED - set this manually",
+      "DD_APPLICATION_KEY": "# REDACTED - set this manually"
+    }
+  },
+  "metabase": {
+    "type": "stdio",
+    "command": "npx",
+    "args": [
+      "-y",
+      "metabase-mcp"
+    ],
+    "env": {
+      "METABASE_URL": "https://metabase-production-2bb0.up.railway.app",
+      "METABASE_API_KEY": "# REDACTED - set this manually"
+    }
+  }
+}

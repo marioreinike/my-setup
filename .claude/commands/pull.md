@@ -14,11 +14,13 @@ Only after the user confirms, apply all changes:
 - Copy claude-local/settings.json → ~/.claude/settings.json
 - Copy claude-local/plugins/*.json → ~/.claude/plugins/
 - If claude-local/commands/ has files, copy them → ~/.claude/commands/
+- Merge claude-local/mcp-servers.json into ~/.claude.json (mcpServers key only — preserve all other keys). Never overwrite live secret values with redacted placeholders — only add/update server structure and non-secret fields.
 - Create parent directories if they don't exist
 
 Ignore these known differences when comparing:
 - zsh/zshrc: lines containing CLAUDE_API_TOKEN or NPM_TASKFORCESH_TOKEN (redacted in repo, live values on computer). Never overwrite these lines — the live values must be preserved.
 - claude-local/plugins/known_marketplaces.json: `lastUpdated` timestamp differences are cosmetic, ignore them.
+- claude-local/mcp-servers.json: values containing `# REDACTED` are placeholders — the live values in ~/.claude.json must be preserved.
 
 IMPORTANT:
 - Never overwrite ~/.claude/.credentials.json

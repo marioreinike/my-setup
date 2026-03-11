@@ -53,6 +53,7 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 | `claude-local/plugins/installed_plugins.json` | `~/.claude/plugins/installed_plugins.json` |
 | `claude-local/plugins/known_marketplaces.json` | `~/.claude/plugins/known_marketplaces.json` |
 | `claude-local/commands/*` | `~/.claude/commands/*` |
+| `claude-local/mcp-servers.json` | `~/.claude.json` (mcpServers key only) |
 
 ## Commit Conventions
 
@@ -64,7 +65,8 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 
 - **Never commit secrets** (API tokens, passwords, keys)
 - The `zsh/zshrc` file has `CLAUDE_API_TOKEN` and `NPM_TASKFORCESH_TOKEN` redacted with `# REDACTED - set this manually`
-- If adding new env vars with secrets to zshrc, always redact them in the repo copy
+- The `claude-local/mcp-servers.json` file has Datadog and Metabase API keys redacted with `# REDACTED - set this manually`
+- If adding new env vars with secrets to zshrc or MCP configs, always redact them in the repo copy
 
 ## Oh My Zsh Details
 
@@ -91,15 +93,11 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 
 ## MCP Servers (Global)
 
-Global MCP servers are configured in `~/.claude.json` via `claude mcp add -s user`. This file is NOT tracked in the repo (too large/ephemeral). To recreate on a new computer:
+Global MCP servers are configured in `~/.claude.json` (mcpServers key). The full `~/.claude.json` is NOT tracked (too large/ephemeral), but the `mcpServers` portion is backed up in `claude-local/mcp-servers.json` with secrets redacted.
 
-```bash
-# ClickUp (project management)
-claude mcp add -s user --transport http clickup https://mcp.clickup.com/mcp
-
-# Playwright (headless browser: scraping, screenshots, PDFs, automation)
-claude mcp add -s user --transport stdio playwright -- npx -y @playwright/mcp@latest --headless --caps "pdf,vision"
-```
+To restore on a new computer, use the `/pull` skill which merges `mcp-servers.json` into `~/.claude.json`, then manually set the redacted secrets:
+- `datadog-mcp`: headers `DD_API_KEY` and `DD_APPLICATION_KEY`
+- `metabase`: env `METABASE_API_KEY`
 
 Tool permissions for these servers are tracked in `claude-local/settings.json`.
 
