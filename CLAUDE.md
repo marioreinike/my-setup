@@ -52,7 +52,7 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 | `claude-local/plugins/config.json` | `~/.claude/plugins/config.json` |
 | `claude-local/plugins/installed_plugins.json` | `~/.claude/plugins/installed_plugins.json` |
 | `claude-local/plugins/known_marketplaces.json` | `~/.claude/plugins/known_marketplaces.json` |
-| `claude-local/commands/*` | `~/.claude/commands/*` |
+| `claude-local/skills/*/SKILL.md` | `~/.claude/skills/*/SKILL.md` |
 | `claude-local/mcp-servers.json` | `~/.claude.json` (mcpServers key only) |
 
 ## Commit Conventions
@@ -88,8 +88,10 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 - `/push` — Read live configs from the computer and update this repo
 - `/pull` — Pull from origin, then restore configs from this repo to the computer
 
-**User-level skills** (backed up in `claude-local/commands/`, synced to `~/.claude/commands/`):
-- Currently none. When Mario asks to create global skills, save them to both `~/.claude/commands/` and `claude-local/commands/`.
+**User-level skills** (backed up in `claude-local/skills/`, synced to `~/.claude/skills/`):
+- `/tmux` — Inspect tmux environment: list panes, read output, send commands, create panes/windows/sessions
+
+When Mario asks to create global skills, save them to both `~/.claude/skills/<name>/SKILL.md` and `claude-local/skills/<name>/SKILL.md`.
 
 ## MCP Servers (Global)
 
