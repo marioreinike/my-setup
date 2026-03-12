@@ -48,7 +48,15 @@ Ctrl+r                 Search backward (in copy mode)
 prefix + ]             Paste buffer
 q                      Exit copy mode
 
+── Navigation (no prefix) ──
+Ctrl+Shift + h/Left    Previous window
+Ctrl+Shift + l/Right   Next window
+Ctrl+Shift + k/Up      Previous session
+Ctrl+Shift + j/Down    Next session
+C-Enter                Clear screen+scrollback, then execute
+
 ── Other ──
+prefix + K             Clear screen and scrollback
 prefix + a             Agent dashboard (Claude Code monitor)
 prefix + g             Lazygit popup (current dir)
 prefix + T             Terminal popup (current dir)
