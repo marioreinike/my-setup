@@ -34,6 +34,7 @@
       "Bash(tmux show-options *)",
       "Bash(ps *)",
       "Bash(gh api *)",
+      "WebSearch",
       "WebFetch(domain:docs.bullmq.io)",
       "mcp__clickup__clickup_search",
       "mcp__clickup__clickup_get_task",
