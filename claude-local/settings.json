@@ -35,7 +35,7 @@
       "Bash(ps *)",
       "Bash(gh api *)",
       "WebSearch",
-      "WebFetch(domain:docs.bullmq.io)",
+      "WebFetch",
       "mcp__clickup__clickup_search",
       "mcp__clickup__clickup_get_task",
       "mcp__clickup__clickup_get_task_comments",
