@@ -53,6 +53,7 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 | `claude-local/plugins/installed_plugins.json` | `~/.claude/plugins/installed_plugins.json` |
 | `claude-local/plugins/known_marketplaces.json` | `~/.claude/plugins/known_marketplaces.json` |
 | `claude-local/skills/*/SKILL.md` | `~/.claude/skills/*/SKILL.md` |
+| `claude-local/statusline.sh` | `~/.claude/statusline.sh` |
 | `claude-local/mcp-servers.json` | `~/.claude.json` (mcpServers key only) |
 
 ## Commit Conventions
