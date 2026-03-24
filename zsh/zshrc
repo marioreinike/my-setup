@@ -165,5 +165,6 @@ export CLAUDE_API_TOKEN=# REDACTED - set this manually
 # Quick navigate to git worktree by branch name
 cdwt() { cd "$(git worktree list | grep "$1" | awk '{print $1}')" }
 
+alias cla="claude --dangerously-skip-permissions"
 alias cld="cd ~/REPOS/dotfiles && claude --dangerously-skip-permissions"
 alias dotfiles="cd ~/REPOS/dotfiles"
