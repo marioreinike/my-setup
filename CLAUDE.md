@@ -24,6 +24,7 @@ zed/              → Zed editor settings and keymap (~/.config/zed/)
 1password/        → 1Password SSH agent config (~/.config/1Password/ssh/agent.toml)
 nvim/             → Neovim config with NvChad (~/.config/nvim/lua/ and .stylua.toml)
 tmux/             → Tmux terminal multiplexer config (~/.config/tmux/)
+nano/             → Nano editor config (~/.nanorc)
 agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 ```
 
@@ -42,6 +43,7 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 | `1password/ssh-agent.toml` | `~/.config/1Password/ssh/agent.toml` |
 | `nvim/lua/*` | `~/.config/nvim/lua/*` |
 | `nvim/.stylua.toml` | `~/.config/nvim/.stylua.toml` |
+| `nano/nanorc` | `~/.nanorc` |
 | `tmux/tmux.conf` | `~/.config/tmux/tmux.conf` |
 | `tmux/tmux-cheatsheet` | `~/.config/tmux/tmux-cheatsheet` |
 | `agent-monitor/claude-dashboard` | `~/.local/bin/claude-dashboard` |

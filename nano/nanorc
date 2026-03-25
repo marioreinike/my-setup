@@ -1,0 +1,44 @@
+# Nano configuration - One Dark theme
+# Requires nano 7.0+ (brew install nano)
+# Uses 3-digit hex colors (#RGB) for 256-color approximation
+
+# ─── Editor Settings ─────────────────────────────────────────────
+set linenumbers
+set autoindent
+set tabsize 4
+set tabstospaces
+set mouse
+set smarthome
+set zap
+set afterends
+set wordchars "_"
+set stateflags
+set indicator
+set minibar
+set nohelp
+set softwrap
+set atblanks
+
+# ─── One Dark Color Theme ────────────────────────────────────────
+# One Dark palette approximated to 3-digit hex (#RGB):
+# Background: #234 (#282c34)  Foreground: #abb (#abb2bf)
+# Red: #e67 (#e06c75)  Green: #9c7 (#98c379)  Yellow: #ec7 (#e5c07b)
+# Blue: #6af (#61afef)  Magenta: #c7d (#c678dd)  Cyan: #5bc (#56b6c2)
+# Gutter/Comment: #556 (#5c6370)  Dark BG: #223 (#21252b)
+
+# UI elements
+set titlecolor #6af,#223
+set promptcolor #abb,#223
+set statuscolor #223,#6af
+set errorcolor #223,#e67
+set spotlightcolor #223,#ec7
+set selectedcolor #223,#c7d
+set stripecolor ,#234
+set scrollercolor #6af
+set numbercolor #556
+set keycolor #6af
+set functioncolor #abb
+set minicolor #abb,#223
+
+# ─── Syntax Highlighting ─────────────────────────────────────────
+include "/opt/homebrew/share/nano/*.nanorc"
