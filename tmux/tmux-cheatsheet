@@ -1,4 +1,4 @@
-prefix = Ctrl+a  or  Ctrl+Space
+prefix = Ctrl+Space
 
 ── Sessions ──
 prefix + :new          New session
@@ -38,13 +38,17 @@ prefix + Space         Cycle pane layouts (flip h↔v)
 prefix + M-1           Layout: even-horizontal
 prefix + M-2           Layout: even-vertical
 prefix + E             Equalize pane sizes
-prefix + X             Pane manager (kill/jump processes)
+prefix + a             Pane manager (kill/jump processes)
 
 ── Copy / Scroll ──
 Trackpad               Scroll directly
 prefix + [             Enter copy/scroll mode
+v                      Begin selection (in copy mode)
+y / Enter              Copy selection to clipboard (in copy mode)
+Alt+Up/Down            Scroll 5 lines (in copy mode)
 Ctrl+s                 Search forward (in copy mode)
 Ctrl+r                 Search backward (in copy mode)
+prefix + P             Paste yanked text
 prefix + ]             Paste buffer
 q                      Exit copy mode
 
@@ -57,7 +61,9 @@ C-Enter                Clear screen+scrollback, then execute
 
 ── Other ──
 prefix + K             Clear screen and scrollback
-prefix + a             Agent dashboard (Claude Code monitor)
+prefix + Ctrl+p        Copy pane ID to clipboard
+prefix + Ctrl+c        Open VS Code (current dir)
+prefix + A             Agent dashboard (Claude Code monitor)
 prefix + g             Lazygit popup (current dir)
 prefix + T             Terminal popup (current dir)
 prefix + i             Info popup (dir + git summary)
