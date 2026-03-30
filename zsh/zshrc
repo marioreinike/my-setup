@@ -156,9 +156,6 @@ alias lt="ls -lht"
 alias lg="lazygit"
 alias lgs="DELTA_FEATURES=+default lazygit"
 
-# OpenClaw Completion
-source "/Users/mario/.openclaw/completions/openclaw.zsh"
-
 
 export CLAUDE_API_TOKEN=# REDACTED - set this manually
 
