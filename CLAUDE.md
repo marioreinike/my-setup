@@ -62,7 +62,6 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 
 - Keep commits atomic: group related changes logically
 - Messages should be short and precise (e.g., "add lazygit alias to zshrc", "update delta side-by-side config")
-- Always use `Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>` trailer
 
 ## Security
 
