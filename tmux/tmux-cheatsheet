@@ -45,7 +45,8 @@ Trackpad               Scroll directly
 prefix + [             Enter copy/scroll mode
 v                      Begin selection (in copy mode)
 y / Enter              Copy selection to clipboard (in copy mode)
-Alt+Up/Down            Scroll 5 lines (in copy mode)
+Alt+Up/Down            Scroll 1 line (in copy mode)
+Shift+Alt+Up/Down      Scroll 4 lines (in copy mode)
 Ctrl+s                 Search forward (in copy mode)
 Ctrl+r                 Search backward (in copy mode)
 prefix + P             Paste yanked text
