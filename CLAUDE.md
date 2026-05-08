@@ -51,6 +51,7 @@ agent-monitor/    → Claude Code agent dashboard scripts (~/.local/bin/)
 | `agent-monitor/claude-notify` | `~/.local/bin/claude-notify` |
 | `agent-monitor/claude-state-hook` | `~/.local/bin/claude-state-hook` |
 | `agent-monitor/claude-format-hook` | `~/.local/bin/claude-format-hook` |
+| `claude-local/CLAUDE.md` | `~/.claude/CLAUDE.md` |
 | `claude-local/settings.json` | `~/.claude/settings.json` |
 | `claude-local/plugins/config.json` | `~/.claude/plugins/config.json` |
 | `claude-local/plugins/installed_plugins.json` | `~/.claude/plugins/installed_plugins.json` |
